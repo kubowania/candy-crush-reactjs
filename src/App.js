@@ -114,6 +114,10 @@ const App = () => {
         if (!squareBeingDragged || !squareBeingReplaced) {
         return;
        }
+        
+        const originalColorArrangement = [...currentColorArrangement]
+        const originalScore=scoreDisplay
+        
         const squareBeingDraggedId = parseInt(squareBeingDragged.getAttribute('data-id'))
         const squareBeingReplacedId = parseInt(squareBeingReplaced.getAttribute('data-id'))
 
@@ -140,9 +144,10 @@ const App = () => {
             setSquareBeingDragged(null)
             setSquareBeingReplaced(null)
         } else {
-            currentColorArrangement[squareBeingReplacedId] = squareBeingReplaced.getAttribute('src')
-            currentColorArrangement[squareBeingDraggedId] = squareBeingDragged.getAttribute('src')
-            setCurrentColorArrangement([...currentColorArrangement])
+
+            
+            setCurrentColorArrangement([...originalColorArrangement])
+            setScoreDisplay(originalScore);
         }
     }
 
