@@ -110,6 +110,10 @@ const App = () => {
         setSquareBeingReplaced(e.target)
     }
     const dragEnd = () => {
+        
+        if (!squareBeingDragged || !squareBeingReplaced) {
+        return;
+       }
         const squareBeingDraggedId = parseInt(squareBeingDragged.getAttribute('data-id'))
         const squareBeingReplacedId = parseInt(squareBeingReplaced.getAttribute('data-id'))
 
